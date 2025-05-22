@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FinMark - Financial Marketing Solutions</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f9fbfd;
+      color: #1a2a4d;
+      line-height: 1.6;
+    }
+    a {
+      color: #2dd4bf;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #14b8a6;
+    }
+    header {
+      background: linear-gradient(90deg, #0e4bef, #00c6f7);
+      color: white;
+      padding: 90px 20px 70px;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    }
+    header h1 {
+      font-size: 3.4rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background: #06b6d4;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      border-radius: 45px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(6,182,212,0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #0891b2;
+      box-shadow: 0 10px 35px rgba(8,145,178,0.7);
+    }
+    main {
+      max-width: 1100px;
+      margin: 60px auto 120px;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 80px;
+    }
+    .features-grid {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    }
+    .feature-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.07);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .feature-icon {
+      font-size: 50px;
+      color: #06b6d4;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    .feature-desc {
+      font-weight: 500;
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .plan-section {
+      background: #dafafa;
+      border-radius: 24px;
+      padding: 40px 25px;
+      box-shadow: 0 8px 30px rgba(6,182,212,0.15);
+      max-width: 900px;
+      margin: 0 auto 80px;
+      text-align: center;
+    }
+    .plan-title {
+      font-size: 2rem;
+      color: #047481;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .plan-desc {
+      font-size: 1.1rem;
+      color: #07575b;
+      margin-bottom: 25px;
+      font-weight: 500;
+      line-height: 1.5;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .plan-details {
+      font-size: 1.1rem;
+      color: #064451;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .plan-amount {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #03506f;
+      margin-bottom: 10px;
+    }
+    .plan-returns {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ff6700;
+      margin-bottom: 18px;
+    }
+    section .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-around;
+    }
+    .benefit {
+      background: #06b6d4;
+      color: white;
+      border-radius: 16px;
+      flex: 1 1 280px;
+      padding: 25px 20px;
+      box-shadow: 0 8px 25px rgba(6,182,212,0.35);
+      text-align: center;
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+    .benefit:hover {
+      background-color: #0891b2;
+    }
+    .benefit-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+    .benefit-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .benefit-desc {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+    .testimonials {
+      background: white;
+      padding: 50px 25px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .testimonial-quote {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #374151;
+      position: relative;
+      padding-left: 40px;
+    }
+    .testimonial-quote::before {
+      content: "“";
+      font-size: 2.5rem;
+      color: #06b6d4;
+      position: absolute;
+      left: 0;
+      top: -5px;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0f172a;
+      text-align: right;
+    }
+    .cta-section {
+      text-align: center;
+    }
+    .cta-section p {
+      font-size: 1.25rem;
+      color: #475569;
+      margin-bottom: 25px;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer {
+      background: #0e4bef;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      font-size: 0.9rem;
+    }
+    .social-links {
+      margin-bottom: 10px;
+    }
+    .social-link {
+      color: white;
+      font-size: 1.3rem;
+      margin: 0 10px;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    .social-link:hover {
+      color: #06b6d4;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .benefits {
+        flex-direction: column;
+      }
+      .plan-section {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Grow Your Wealth with FinMark</h1>
+    <p>Innovative financial marketing solutions designed to accelerate your business growth.</p>
+    <button class="btn-primary" onclick="scrollToSection('services')">Our Services</button>
+  </header>
+
+  <main>
+    <section id="services">
+      <h2 style="text-align:center; margin-bottom: 40px; font-weight: 700;">Our Financial Marketing Solutions</h2>
+      <div class="features-grid">
+        <div class="feature-card" tabindex="0" aria-label="Share Trading in NSE and BSE">
+          <div class="feature-icon">📈</div>
+          <h3 class="feature-title">Share Trading in NSE and BSE</h3>
+          <p class="feature-desc">Expert guidance and strategies for trading shares on the National Stock Exchange and Bombay Stock Exchange.</p>
+        </div>
+        <div class="feature-card" tabindex="0" aria-label="Futures and Options (F&O)">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Futures and Options (F&O)</h3>
+          <p class="feature-desc">Comprehensive insights and strategies for trading in futures and options to maximize your returns.</p>
+        </div>
+        <div class="feature-card" tabindex="0" aria-label="Mutual Funds">
+          <div class="feature-icon">💼</div>
+          <h3 class="feature-title">Mutual Funds</h3>
+          <p class="feature-desc">Tailored mutual fund investment strategies to help you achieve your financial goals.</p>
+        </div>
+        <div class="feature-card" tabindex="0" aria-label="Systematic Investment Plans (SIP)">
+          <div class="feature-icon">💰</div>
+          <h3 class="feature-title">Systematic Investment Plans (SIP)</h3>
+          <p class="feature-desc">Invest regularly through SIPs to build wealth over time with disciplined investing.</p>
+        </div>
+        <div class="feature-card" tabindex="0" aria-label="Unlisted Shares">
+          <div class="feature-icon">📉</div>
+          <h3 class="feature-title">Unlisted Shares</h3>
+          <p class="feature-desc">Access to exclusive opportunities in unlisted shares for potential high returns.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-section" aria-label="Featured Investment Plan">
+      <h2 class="plan-title">Platinum Investment Plan</h2>
+      <p class="plan-desc">Invest with real money and enjoy steady returns with our Platinum Investment Plan, designed for cautious yet profitable growth.</p>
+      <p class="plan-details">
+        <span class="plan-amount">Minimum Investment: ₹50,000</span><br />
+        <span class="plan-returns">Expected Returns: 8% - 12% annually</span><br />
+        <span>Investment Duration: 1 Year Minimum</span>
+      </p>
+      <button class="btn-primary" onclick="scrollToContact()">Invest Now</button>
+    </section>
+
+    <section>
+      <h2 style="text-align:center; margin-bottom: 40px; font-weight: 700;">Why Choose Us?</h2>
+      <div class="benefits">
+        <div class="benefit" tabindex="0" aria-label="Experienced Professionals">
+          <div class="benefit-icon">🧑‍💼</div>
+          <h3 class="benefit-title">Experienced Professionals</h3>
+          <p class="benefit-desc">Decades of combined experience in finance and marketing industries.</p>
+        </div>
+        <div class="benefit" tabindex="0" aria-label="Customized Approach">
+          <div class="benefit-icon">🛠️</div>
+          <h3 class="benefit-title">Customized Approach</h3>
+          <p class="benefit-desc">Every business gets a uniquely crafted strategy to maximize growth.</p>
+        </div>
+        <div class="benefit" tabindex="0" aria-label="Proven Success">
+          <div class="benefit-icon">🏆</div>
+          <h3 class="benefit-title">Proven Success</h3>
+          <p class="benefit-desc">Numerous clients have achieved record growth with our strategies.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="text-align:center; margin-bottom: 40px; font-weight: 700;">What Our Clients Say</h2>
+      <div class="testimonials" aria-label="Client testimonials">
+        <p class="testimonial-quote">FinMark transformed our marketing approach and delivered incredible ROI within months. Highly recommended!</p>
+        <p class="testimonial-author">- Sarah Lee, CEO of WealthGrow Inc.</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <p>Ready to elevate your financial marketing and grow your business?</p>
+      <button class="btn-primary" onclick="scrollToContact()">Contact Us Today</button>
+    </section>
+
+    <section id="contact" style="margin-top: 80px; max-width: 500px; margin-left: auto; margin-right: auto;">
+      <h2 style="text-align:center; margin-bottom: 30px; font-weight: 700;">Get in Touch</h2>
+      <form id="contactForm" aria-label="Contact form" onsubmit="submitForm(event)">
+        <label for="name" style="font-weight:600;">Name</label><br />
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc;" />
+        
+        <label for="email" style="font-weight:600;">Email</label><br />
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc;" />
+        
+        <label for="message" style="font-weight:600;">Message</label><br />
+        <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+        
+        <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+      </form>
+      <p id="formSuccess" aria-live="polite" style="color: #16a34a; font-weight: 600; display:none; margin-top: 15px; text-align:center;">Thank you for contacting us! We'll get back to you shortly.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="social-links" aria-label="Social media links">
+      <a href="#" class="social-link" aria-label="Twitter" title="Twitter" target="_blank" rel="noopener noreferrer">🐦</a>
+      <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">🔗</a>
+      <a href="#" class="social-link" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
+    </div>
+    <p>© 2024 FinMark Inc. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+    function scrollToContact() {
+      scrollToSection('contact');
+      document.getElementById('name').focus();
+    }
+    function submitForm(event) {
+      event.preventDefault();
+      // Basic form submission simulation
+      const form = document.getElementById('contactForm');
+      const successMsg = document.getElementById('formSuccess');
+
+      successMsg.style.display = 'none';
+
+      // In a real app, you would send data to backend here.
+      setTimeout(() => {
+        form.reset();
+        successMsg.style.display = 'block';
+        successMsg.focus();
+      }, 800);
+    }
+  </script>
+</body>
+</html>
+
+
